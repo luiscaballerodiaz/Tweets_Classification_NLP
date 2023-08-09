@@ -50,11 +50,11 @@ def get_profner_data(profner_path_data):
 
 def load_emoji_sentiment(path):
     # Cargamos el csv de emoji_sentiment
-    emoji_sent_df = pd.read_csv(path,sep=",")
-    # Calculamos los scores dividiendo el número de emojis negativos y entre el total
-    emoji_sent_df["Negative"] = emoji_sent_df["Negative"]/emoji_sent_df["Occurrences"]
-    emoji_sent_df["Neutral"] = emoji_sent_df["Neutral"]/emoji_sent_df["Occurrences"]
-    emoji_sent_df["Positive"] = emoji_sent_df["Positive"]/emoji_sent_df["Occurrences"]
+    emoji_sent_df = pd.read_csv(path, sep=",")
+    # Calculamos los scores dividiendo el número de emojis de cada sentimiento y entre el total
+    emoji_sent_df["Negative"] = emoji_sent_df["Negative"] / emoji_sent_df["Occurrences"]
+    emoji_sent_df["Neutral"] = emoji_sent_df["Neutral"] / emoji_sent_df["Occurrences"]
+    emoji_sent_df["Positive"] = emoji_sent_df["Positive"] / emoji_sent_df["Occurrences"]
     # Transformamos a dict
     emoji_sent_df = emoji_sent_df.set_index('Emoji')
     emoji_dict = emoji_sent_df.to_dict(orient="index")
